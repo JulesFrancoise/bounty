@@ -90,7 +90,8 @@ export default ({
   lineHeight = 1.35,
   letterSpacing = 1,
   animationDelay = 100,
-  letterAnimationDelay = 100
+  letterAnimationDelay = 100,
+  duration = 3000
 }) => {
   const element = select(el);
   const computedStyle = window.getComputedStyle(element);
@@ -137,6 +138,7 @@ export default ({
     const digitTransition = transition({
       from: startPos,
       to: targetDistance,
+      duration,
       delay: (chars.length - 1 - i) * letterAnimationDelay + animationDelay,
       step(value) {
         digit.offset.y = offset + value % ((fontSize * lineHeight) * DIGITS_COUNT);
